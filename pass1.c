@@ -24,7 +24,6 @@ fscanf(f1,"%s\t%s\t%s",label,opcode,operand);
 }
 else
  locctr=0;
- 
 while(strcmp(opcode,"END")!=0){
  fprintf(f4,"%d",locctr);
  
@@ -54,9 +53,6 @@ locctr++;
 }
 fprintf(f4,"\t%s\t%s\t%s\n",label,opcode,operand);
 fscanf(f1,"%s\t%s\t%s",label,opcode,operand);
-
 }
-
 fprintf(f4,"%d\t%s\t%s\t%s",locctr,label,opcode,operand);
-
 }
