@@ -3,17 +3,14 @@
 #include<stdlib.h>
 
 void main(){
-
 char label[10],opcode[10],operand[10],code[10],mne[10];
 int start,length,locctr;
-
 FILE *f1,*f2,*f3,*f4;
 
 f1=fopen("input.dat","r");
 f2=fopen("opcode.dat","r");
 f3=fopen("symtab.dat","w");
 f4=fopen("intermediate.dat","w");
-
 fscanf(f1,"%s\t%s\t%s",label,opcode,operand);
 
 if(strcmp(opcode,"START")==0){
@@ -23,7 +20,7 @@ fprintf(f4,"\t%s\t%s\t%s\n",label,opcode,operand);
 fscanf(f1,"%s\t%s\t%s",label,opcode,operand);
 }
 else
- locctr=0;
+locctr=0;
 while(strcmp(opcode,"END")!=0){
  fprintf(f4,"%d",locctr);
  
@@ -31,14 +28,13 @@ while(strcmp(opcode,"END")!=0){
  fprintf(f3,"%s\t%d\n",label,locctr);
  
  fscanf(f2,"%s\t%s",code,mne);
- 
- while(strcmp(code,"END")!=0){
+ while(!feof(f2)){
   if(strcmp(opcode,code)==0){
   locctr+=3;
   break;
  }
- fscanf(f2,"%s\t%s",code,mne);
-}
+ fscanf(f2,"%s\t%s",code,mne); 
+ }
 if(strcmp(opcode,"WORD")==0){
 locctr+=3;
 }
