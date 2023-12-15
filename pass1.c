@@ -30,18 +30,14 @@ break;
 }
 fscanf(f2,"%s\t%s",code,mne);
 }
-if(strcmp(opcode,"WORD")==0){
+if(strcmp(opcode,"WORD")==0)
 locctr+=3;
-}
-else if(strcmp(opcode,"RESW")==0){
+else if(strcmp(opcode,"RESW")==0)
 locctr+=3*atoi(operand);
-}
-else if(strcmp(opcode,"RESB")==0){
+else if(strcmp(opcode,"RESB")==0)
 locctr+=atoi(operand);
-}
-else if(strcmp(opcode,"BYTE")==0){
+else if(strcmp(opcode,"BYTE")==0)
 locctr++;
-}
 fprintf(f4,"\t%s\t%s\t%s\n",label,opcode,operand);
 fscanf(f1,"%s\t%s%s",label,opcode,operand);
 }
